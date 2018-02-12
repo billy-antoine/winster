@@ -1,0 +1,7 @@
+/home/doctorant/Qt/Winster/build/CMakeFiles/install.dir
+/home/doctorant/Qt/Winster/build/CMakeFiles/list_install_components.dir
+/home/doctorant/Qt/Winster/build/CMakeFiles/rebuild_cache.dir
+/home/doctorant/Qt/Winster/build/CMakeFiles/Winster.dir
+/home/doctorant/Qt/Winster/build/CMakeFiles/install/strip.dir
+/home/doctorant/Qt/Winster/build/CMakeFiles/install/local.dir
+/home/doctorant/Qt/Winster/build/CMakeFiles/edit_cache.dir
