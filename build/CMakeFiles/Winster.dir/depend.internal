@@ -320,6 +320,37 @@ CMakeFiles/Winster.dir/main.cpp.o
  /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/numeric/numeric.h
  /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/sfm/pipelines/sfm_robust_model_estimation.hpp
  /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/stl/hash.hpp
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/algorithms/all_indices.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/algorithms/autotuned_index.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/algorithms/center_chooser.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/algorithms/composite_index.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/algorithms/dist.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/algorithms/hierarchical_clustering_index.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/algorithms/kdtree_cuda_3d_index.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/algorithms/kdtree_index.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/algorithms/kdtree_single_index.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/algorithms/kmeans_index.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/algorithms/linear_index.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/algorithms/lsh_index.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/algorithms/nn_index.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/defines.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/flann.hpp
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/general.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/nn/ground_truth.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/nn/index_testing.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/util/allocator.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/util/dynamic_bitset.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/util/heap.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/util/logger.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/util/lsh_table.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/util/matrix.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/util/params.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/util/random.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/util/result_set.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/util/sampling.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/util/saving.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/util/serialization.h
+ /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/flann/src/cpp/flann/util/timer.h
  /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/stlplus3/filesystemSimplified/./portability_fixes.hpp
  /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party/stlplus3/filesystemSimplified/file_system.hpp
  /home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/types.hpp
@@ -567,6 +598,24 @@ CMakeFiles/Winster.dir/main.cpp.o
  /usr/local/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h
  /usr/local/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h
  /usr/local/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
+ /usr/local/include/eigen3/unsupported/Eigen/NonLinearOptimization
+ /usr/local/include/eigen3/unsupported/Eigen/NumericalDiff
+ /usr/local/include/eigen3/unsupported/Eigen/Polynomials
+ /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/HybridNonLinearSolver.h
+ /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/LevenbergMarquardt.h
+ /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/chkder.h
+ /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/covar.h
+ /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/dogleg.h
+ /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/fdjac1.h
+ /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/lmpar.h
+ /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/qrsolv.h
+ /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/r1mpyq.h
+ /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/r1updt.h
+ /usr/local/include/eigen3/unsupported/Eigen/src/NonLinearOptimization/rwupdt.h
+ /usr/local/include/eigen3/unsupported/Eigen/src/NumericalDiff/NumericalDiff.h
+ /usr/local/include/eigen3/unsupported/Eigen/src/Polynomials/Companion.h
+ /usr/local/include/eigen3/unsupported/Eigen/src/Polynomials/PolynomialSolver.h
+ /usr/local/include/eigen3/unsupported/Eigen/src/Polynomials/PolynomialUtils.h
  /usr/local/include/opencv/cxcore.h
  /usr/local/include/opencv2/calib3d.hpp
  /usr/local/include/opencv2/calib3d/calib3d_c.h
@@ -712,7 +761,9 @@ CMakeFiles/Winster.dir/main.cpp.o
  /usr/local/include/pcl-1.8/pcl/PolygonMesh.h
  /usr/local/include/pcl-1.8/pcl/TextureMesh.h
  /usr/local/include/pcl-1.8/pcl/Vertices.h
+ /usr/local/include/pcl-1.8/pcl/cloud_iterator.h
  /usr/local/include/pcl-1.8/pcl/common/angles.h
+ /usr/local/include/pcl-1.8/pcl/common/centroid.h
  /usr/local/include/pcl-1.8/pcl/common/colors.h
  /usr/local/include/pcl-1.8/pcl/common/common.h
  /usr/local/include/pcl-1.8/pcl/common/common_headers.h
@@ -720,23 +771,30 @@ CMakeFiles/Winster.dir/main.cpp.o
  /usr/local/include/pcl-1.8/pcl/common/copy_point.h
  /usr/local/include/pcl-1.8/pcl/common/eigen.h
  /usr/local/include/pcl-1.8/pcl/common/file_io.h
+ /usr/local/include/pcl-1.8/pcl/common/impl/accumulators.hpp
  /usr/local/include/pcl-1.8/pcl/common/impl/angles.hpp
+ /usr/local/include/pcl-1.8/pcl/common/impl/centroid.hpp
  /usr/local/include/pcl-1.8/pcl/common/impl/common.hpp
  /usr/local/include/pcl-1.8/pcl/common/impl/copy_point.hpp
  /usr/local/include/pcl-1.8/pcl/common/impl/eigen.hpp
  /usr/local/include/pcl-1.8/pcl/common/impl/file_io.hpp
  /usr/local/include/pcl-1.8/pcl/common/impl/io.hpp
  /usr/local/include/pcl-1.8/pcl/common/impl/norms.hpp
+ /usr/local/include/pcl-1.8/pcl/common/impl/transforms.hpp
  /usr/local/include/pcl-1.8/pcl/common/io.h
  /usr/local/include/pcl-1.8/pcl/common/norms.h
+ /usr/local/include/pcl-1.8/pcl/common/point_operators.h
  /usr/local/include/pcl-1.8/pcl/common/point_tests.h
  /usr/local/include/pcl-1.8/pcl/common/time.h
+ /usr/local/include/pcl-1.8/pcl/common/transforms.h
+ /usr/local/include/pcl-1.8/pcl/console/parse.h
  /usr/local/include/pcl-1.8/pcl/console/print.h
  /usr/local/include/pcl-1.8/pcl/conversions.h
  /usr/local/include/pcl-1.8/pcl/correspondence.h
  /usr/local/include/pcl-1.8/pcl/exceptions.h
  /usr/local/include/pcl-1.8/pcl/for_each_type.h
  /usr/local/include/pcl-1.8/pcl/geometry/planar_polygon.h
+ /usr/local/include/pcl-1.8/pcl/impl/cloud_iterator.hpp
  /usr/local/include/pcl-1.8/pcl/impl/pcl_base.hpp
  /usr/local/include/pcl-1.8/pcl/impl/point_types.hpp
  /usr/local/include/pcl-1.8/pcl/io/boost.h
@@ -750,14 +808,53 @@ CMakeFiles/Winster.dir/main.cpp.o
  /usr/local/include/pcl-1.8/pcl/io/ply/ply.h
  /usr/local/include/pcl-1.8/pcl/io/ply/ply_parser.h
  /usr/local/include/pcl-1.8/pcl/io/ply_io.h
+ /usr/local/include/pcl-1.8/pcl/kdtree/flann.h
+ /usr/local/include/pcl-1.8/pcl/kdtree/impl/kdtree_flann.hpp
+ /usr/local/include/pcl-1.8/pcl/kdtree/kdtree.h
+ /usr/local/include/pcl-1.8/pcl/kdtree/kdtree_flann.h
  /usr/local/include/pcl-1.8/pcl/pcl_base.h
  /usr/local/include/pcl-1.8/pcl/pcl_config.h
  /usr/local/include/pcl-1.8/pcl/pcl_exports.h
  /usr/local/include/pcl-1.8/pcl/pcl_macros.h
  /usr/local/include/pcl-1.8/pcl/point_cloud.h
+ /usr/local/include/pcl-1.8/pcl/point_representation.h
  /usr/local/include/pcl-1.8/pcl/point_traits.h
  /usr/local/include/pcl-1.8/pcl/point_types.h
  /usr/local/include/pcl-1.8/pcl/register_point_struct.h
+ /usr/local/include/pcl-1.8/pcl/registration/boost.h
+ /usr/local/include/pcl-1.8/pcl/registration/convergence_criteria.h
+ /usr/local/include/pcl-1.8/pcl/registration/correspondence_estimation.h
+ /usr/local/include/pcl-1.8/pcl/registration/correspondence_rejection.h
+ /usr/local/include/pcl-1.8/pcl/registration/correspondence_sorting.h
+ /usr/local/include/pcl-1.8/pcl/registration/correspondence_types.h
+ /usr/local/include/pcl-1.8/pcl/registration/default_convergence_criteria.h
+ /usr/local/include/pcl-1.8/pcl/registration/eigen.h
+ /usr/local/include/pcl-1.8/pcl/registration/icp.h
+ /usr/local/include/pcl-1.8/pcl/registration/impl/correspondence_estimation.hpp
+ /usr/local/include/pcl-1.8/pcl/registration/impl/correspondence_types.hpp
+ /usr/local/include/pcl-1.8/pcl/registration/impl/default_convergence_criteria.hpp
+ /usr/local/include/pcl-1.8/pcl/registration/impl/icp.hpp
+ /usr/local/include/pcl-1.8/pcl/registration/impl/registration.hpp
+ /usr/local/include/pcl-1.8/pcl/registration/impl/transformation_estimation_point_to_plane_lls.hpp
+ /usr/local/include/pcl-1.8/pcl/registration/impl/transformation_estimation_svd.hpp
+ /usr/local/include/pcl-1.8/pcl/registration/registration.h
+ /usr/local/include/pcl-1.8/pcl/registration/transformation_estimation.h
+ /usr/local/include/pcl-1.8/pcl/registration/transformation_estimation_point_to_plane_lls.h
+ /usr/local/include/pcl-1.8/pcl/registration/transformation_estimation_svd.h
+ /usr/local/include/pcl-1.8/pcl/registration/warp_point_rigid.h
+ /usr/local/include/pcl-1.8/pcl/sample_consensus/boost.h
+ /usr/local/include/pcl-1.8/pcl/sample_consensus/eigen.h
+ /usr/local/include/pcl-1.8/pcl/sample_consensus/impl/ransac.hpp
+ /usr/local/include/pcl-1.8/pcl/sample_consensus/impl/sac_model_registration.hpp
+ /usr/local/include/pcl-1.8/pcl/sample_consensus/model_types.h
+ /usr/local/include/pcl-1.8/pcl/sample_consensus/ransac.h
+ /usr/local/include/pcl-1.8/pcl/sample_consensus/sac.h
+ /usr/local/include/pcl-1.8/pcl/sample_consensus/sac_model.h
+ /usr/local/include/pcl-1.8/pcl/sample_consensus/sac_model_registration.h
+ /usr/local/include/pcl-1.8/pcl/search/impl/kdtree.hpp
+ /usr/local/include/pcl-1.8/pcl/search/impl/search.hpp
+ /usr/local/include/pcl-1.8/pcl/search/kdtree.h
+ /usr/local/include/pcl-1.8/pcl/search/search.h
  /usr/local/include/pcl-1.8/pcl/visualization/area_picking_event.h
  /usr/local/include/pcl-1.8/pcl/visualization/boost.h
  /usr/local/include/pcl-1.8/pcl/visualization/cloud_viewer.h

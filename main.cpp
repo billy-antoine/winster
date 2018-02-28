@@ -21,6 +21,11 @@
 #include <pcl/visualization/cloud_viewer.h>
 #include <pcl/visualization/pcl_visualizer.h>
 
+#include <pcl/console/parse.h>
+#include <pcl/common/transforms.h>
+
+#include <pcl/registration/icp.h>
+
 using namespace cv;
 
 int multimaps(){
@@ -131,39 +136,16 @@ int main(){
     cv::reprojectImageTo3D(dispMap02, points02, Q, true, -1);
 
     //Q.convertTo(Q, CV_32F);
-    pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud = MatToPoinXYZ(points01, left01);
+    pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud1 = MatToPoinXYZ(points01, left01);
+    pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud2 = MatToPoinXYZ(points02, left02);
 
     //std::string writePath = outputDir+"poitCloud.ply";
    // pcl::io::savePLYFileASCII(writePath, *cloud);
 
 
-    //pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>);//(new pcl::pointcloud<pcl::pointXYZ>);
-
-    //pcl::PLYReader Reader;
-    //Reader.read("/home/doctorant/Documents/3d/ply/cube.ply", *cloud);
-
-    //matToPointXYZ( left01, dispMap01, cloud, cx, cy, focal);
-
-    pcl::visualization::CloudViewer viewer("Simple Cloud Viewer");
-
-    //viewer.setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 30, "Simple Cloud Viewer");
-    viewer.showCloud(cloud);
-    while (!viewer.wasStopped ())
-     {
-     }
-
-    //boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("3D Viewer"));
-    //viewer->setBackgroundColor (0, 0, 0);
-
-    std::cout << "saving to ply format " << std::endl;
 
 
-    if(writeImage){
-        //savePLY(pointCloudPath+"01.ply", points01, left01);
-    }
-
-    std::cout << "ply saved" << std::endl;
-    std::cout << "SfM computation ..." << std::endl;
+    /*std::cout << "SfM computation ..." << std::endl;
 
 
     openMVG::image::Image<unsigned char> imageL, imageR;
@@ -179,6 +161,59 @@ int main(){
 
     for (auto i: vec_camPos)
         cout << i << ' ';
+
+
+    Eigen::Affine3f transform_2 = Eigen::Affine3f::Identity();
+    transform_2.translation() << vec_camPos[1][0], vec_camPos[1][1], vec_camPos[1][2];*/
+
+    // Executing the transformation
+    pcl::PointCloud<pcl::PointXYZRGB>::Ptr transformed_cloud (new pcl::PointCloud<pcl::PointXYZRGB> ());
+    // You can either apply transform_1 or transform_2; they are the same
+    //pcl::transformPointCloud (*cloud, *transformed_cloud, transform_2);
+
+
+  Eigen::Matrix4d transformation_matrix = Eigen::Matrix4d::Identity ();
+
+    pcl::IterativeClosestPoint<pcl::PointXYZRGB, pcl::PointXYZRGB> icp;
+    icp.setInputCloud(cloud1);
+    icp.setInputTarget(cloud2);
+    icp.setMaximumIterations (20);
+    icp.setTransformationEpsilon (1e-9);
+    icp.setMaxCorrespondenceDistance (0.05);
+    icp.setEuclideanFitnessEpsilon (1);
+    icp.setRANSACOutlierRejectionThreshold (1.5);
+
+    pcl::PointCloud<pcl::PointXYZRGB> Final;
+    icp.align(Final);
+
+    Eigen::Matrix4f transformationMatrix = icp.getFinalTransformation ();
+    std::cout<<"trans %n"<<transformationMatrix<<std::endl;
+
+
+    pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloudOut_new (new pcl::PointCloud<pcl::PointXYZRGB> ());
+
+    pcl::transformPointCloud( *cloud1, *cloudOut_new, transformationMatrix);
+
+    pcl::io::savePLYFileBINARY (outputDir+"IcpResult3.ply", Final);
+
+    Final=*cloud2;
+    Final+=*cloudOut_new;
+
+   boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer("3D Viewer"));
+   viewer->setBackgroundColor(0,0,0);
+   //pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZRGB> single_color1 (cloud2, 0, 0, 200);
+   //pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZRGB> single_color2 (cloudOut_new, 200, 0, 0);
+
+   viewer->addPointCloud<pcl::PointXYZRGB> (cloud2, "sample_cloud_1");
+   viewer->addPointCloud<pcl::PointXYZRGB> (cloudOut_new, "sample_cloud_2");
+
+    viewer->addCoordinateSystem(0.1);
+      while(!viewer->wasStopped())
+      {
+          viewer->spinOnce();
+          boost::this_thread::sleep (boost::posix_time::microseconds(100000));
+      }
+
 
 
 
