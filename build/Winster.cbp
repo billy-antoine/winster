@@ -60,16 +60,16 @@
             <Add option="-DvtkRenderingCore_AUTOINIT=3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)" />
             <Add option="-DvtkRenderingOpenGL2_AUTOINIT=1(vtkRenderingGL2PSOpenGL2)" />
             <Add option="-DvtkRenderingVolume_AUTOINIT=1(vtkRenderingVolumeOpenGL2)" />
-            <Add option="-DDISABLE_OPENNI" />
-            <Add option="-DDISABLE_OPENNI2" />
             <Add option="-DDISABLE_ENSENSO" />
             <Add option="-DDISABLE_DAVIDSDK" />
             <Add option="-DDISABLE_DSSDK" />
             <Add option="-DDISABLE_PCAP" />
             <Add option="-DDISABLE_PNG" />
             <Add option="-DDISABLE_LIBUSB_1_0" />
+            <Add option="-DDISABLE_RSSDK" />
             <Add option="-DOPENMVG_USE_AVX2" />
             <Add option="-DOPENMVG_USE_OPENMP" />
+            <Add directory="/home/doctorant/libs/OpenNI2/Include" />
             <Add directory="/home/doctorant/libs/openMVG/build/openMVG_install/include" />
             <Add directory="/home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG" />
             <Add directory="/home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party" />
@@ -81,6 +81,7 @@
             <Add directory="/usr/include/c++/5" />
             <Add directory="/usr/include/c++/5/backward" />
             <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/include/ni" />
             <Add directory="/usr/include/x86_64-linux-gnu" />
             <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
             <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
@@ -111,16 +112,16 @@
             <Add option="-DvtkRenderingCore_AUTOINIT=3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)" />
             <Add option="-DvtkRenderingOpenGL2_AUTOINIT=1(vtkRenderingGL2PSOpenGL2)" />
             <Add option="-DvtkRenderingVolume_AUTOINIT=1(vtkRenderingVolumeOpenGL2)" />
-            <Add option="-DDISABLE_OPENNI" />
-            <Add option="-DDISABLE_OPENNI2" />
             <Add option="-DDISABLE_ENSENSO" />
             <Add option="-DDISABLE_DAVIDSDK" />
             <Add option="-DDISABLE_DSSDK" />
             <Add option="-DDISABLE_PCAP" />
             <Add option="-DDISABLE_PNG" />
             <Add option="-DDISABLE_LIBUSB_1_0" />
+            <Add option="-DDISABLE_RSSDK" />
             <Add option="-DOPENMVG_USE_AVX2" />
             <Add option="-DOPENMVG_USE_OPENMP" />
+            <Add directory="/home/doctorant/libs/OpenNI2/Include" />
             <Add directory="/home/doctorant/libs/openMVG/build/openMVG_install/include" />
             <Add directory="/home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG" />
             <Add directory="/home/doctorant/libs/openMVG/build/openMVG_install/include/openMVG/third_party" />
@@ -132,6 +133,7 @@
             <Add directory="/usr/include/c++/5" />
             <Add directory="/usr/include/c++/5/backward" />
             <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/include/ni" />
             <Add directory="/usr/include/x86_64-linux-gnu" />
             <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
             <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
@@ -264,6 +266,36 @@
       <Unit filename="/home/doctorant/Qt/Winster/../../../../usr/local/share/pcl-1.8/Modules/FindDSSDK.cmake">
           <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\pcl-1.8\Modules\" />
       </Unit>
+      <Unit filename="/home/doctorant/Qt/Winster/../../../../usr/local/share/pcl-1.8/Modules/FindFLANN.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\pcl-1.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/doctorant/Qt/Winster/../../../../usr/local/share/pcl-1.8/Modules/FindFLANN.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\pcl-1.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/doctorant/Qt/Winster/../../../../usr/local/share/pcl-1.8/Modules/FindOpenNI.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\pcl-1.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/doctorant/Qt/Winster/../../../../usr/local/share/pcl-1.8/Modules/FindOpenNI2.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\pcl-1.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/doctorant/Qt/Winster/../../../../usr/local/share/pcl-1.8/Modules/FindEnsenso.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\pcl-1.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/doctorant/Qt/Winster/../../../../usr/local/share/pcl-1.8/Modules/FinddavidSDK.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\pcl-1.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/doctorant/Qt/Winster/../../../../usr/local/share/pcl-1.8/Modules/FindDSSDK.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\pcl-1.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/doctorant/Qt/Winster/../../../../usr/local/share/pcl-1.8/Modules/FindRSSDK.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\pcl-1.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/doctorant/Qt/Winster/../../../../usr/local/share/pcl-1.8/Modules/FindFLANN.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\pcl-1.8\Modules\" />
+      </Unit>
+      <Unit filename="/home/doctorant/Qt/Winster/../../../../usr/local/share/pcl-1.8/Modules/FindFLANN.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\share\pcl-1.8\Modules\" />
+      </Unit>
       <Unit filename="/home/doctorant/Qt/Winster/../../../../usr/local/lib/cmake/vtk-8.1/VTKConfigVersion.cmake">
           <Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\vtk-8.1\" />
       </Unit>
@@ -274,6 +306,18 @@
           <Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\vtk-8.1\" />
       </Unit>
       <Unit filename="/home/doctorant/Qt/Winster/../../../../usr/local/lib/cmake/vtk-8.1/VTKTargets-debug.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\vtk-8.1\" />
+      </Unit>
+      <Unit filename="/home/doctorant/Qt/Winster/../../../../usr/local/lib/cmake/vtk-8.1/vtkModuleAPI.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\vtk-8.1\" />
+      </Unit>
+      <Unit filename="/home/doctorant/Qt/Winster/../../../../usr/local/lib/cmake/vtk-8.1/UseVTK.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\vtk-8.1\" />
+      </Unit>
+      <Unit filename="/home/doctorant/Qt/Winster/../../../../usr/local/lib/cmake/vtk-8.1/VTKConfigVersion.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\vtk-8.1\" />
+      </Unit>
+      <Unit filename="/home/doctorant/Qt/Winster/../../../../usr/local/lib/cmake/vtk-8.1/VTKConfig.cmake">
           <Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\cmake\vtk-8.1\" />
       </Unit>
       <Unit filename="/home/doctorant/Qt/Winster/../../../../usr/local/lib/cmake/vtk-8.1/vtkModuleAPI.cmake">

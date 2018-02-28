@@ -13,5 +13,10 @@ void matToPointXYZ(cv::Mat &color, cv::Mat &depth,
                    const double u0, const double v0, const double f );
 
 
+pcl::PointCloud<pcl::PointXYZRGB>::Ptr MatToPoinXYZ(cv::Mat OpencVPointCloud, cv::Mat color);
+
+pcl::PointCloud<pcl::PointXYZ>::Ptr customReproject(const cv::Mat& recons3D, const cv::Mat& img);
+
+
 #endif // POINT_CLOUD_VIEWER_H
 

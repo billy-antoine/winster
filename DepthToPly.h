@@ -35,4 +35,6 @@ std::basic_ostream<T>& comma_sep(std::basic_ostream<T>& os)
 void savePLY(cv::String fileName, cv::Mat &points, cv::Mat &intensities, int MaxValue = 500);
 void saveXYZ(const char* filename, const cv::Mat& mat);
 
+void writeMatToFile(cv::Mat& m, cv::String filename);
+
 #endif
