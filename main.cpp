@@ -100,7 +100,8 @@ int main(){
     cv::imwrite(outputDir+"dmap_01.png", dispMap01);
     cv::imwrite(outputDir+"dmap_02.png", dispMap02);
 
-    dispMap01.convertTo(dispMap01, CV_32FC1);
+    //dispMap01.convertTo(dispMap01, CV_32FC1);
+    //dispMap02.convertTo(dispMap02, CV_32FC1);
     //cv::normalize(dispMap01, dispMap01,  0, 255, CV_MINMAX, CV_8U);
     if(writeImage){
         cv::String filename = outputDir+"mat01.txt";
@@ -138,6 +139,11 @@ int main(){
     //Q.convertTo(Q, CV_32F);
     pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud1 = MatToPoinXYZ(points01, left01);
     pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud2 = MatToPoinXYZ(points02, left02);
+
+    if(writeImage){
+        pcl::io::savePLYFileBinary (outputDir+"cloud1.ply", *cloud1);
+        pcl::io::savePLYFileBinary (outputDir+"cloud2.ply", *cloud2);
+    }
 
     //std::string writePath = outputDir+"poitCloud.ply";
    // pcl::io::savePLYFileASCII(writePath, *cloud);
@@ -177,9 +183,9 @@ int main(){
     pcl::IterativeClosestPoint<pcl::PointXYZRGB, pcl::PointXYZRGB> icp;
     icp.setInputCloud(cloud1);
     icp.setInputTarget(cloud2);
-    icp.setMaximumIterations (20);
+    icp.setMaximumIterations (200);
     icp.setTransformationEpsilon (1e-9);
-    icp.setMaxCorrespondenceDistance (0.05);
+    icp.setMaxCorrespondenceDistance (0.005);
     icp.setEuclideanFitnessEpsilon (1);
     icp.setRANSACOutlierRejectionThreshold (1.5);
 
@@ -194,20 +200,20 @@ int main(){
 
     pcl::transformPointCloud( *cloud1, *cloudOut_new, transformationMatrix);
 
-    pcl::io::savePLYFileBINARY (outputDir+"IcpResult3.ply", Final);
-
     Final=*cloud2;
     Final+=*cloudOut_new;
 
+    pcl::io::savePLYFileBinary (outputDir+"IcpResult.ply", Final);
+
    boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer("3D Viewer"));
    viewer->setBackgroundColor(0,0,0);
-   //pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZRGB> single_color1 (cloud2, 0, 0, 200);
-   //pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZRGB> single_color2 (cloudOut_new, 200, 0, 0);
+   pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZRGB> single_color1 (cloud2, 0, 0, 200);
+   pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZRGB> single_color2 (cloudOut_new, 200, 0, 0);
 
-   viewer->addPointCloud<pcl::PointXYZRGB> (cloud2, "sample_cloud_1");
-   viewer->addPointCloud<pcl::PointXYZRGB> (cloudOut_new, "sample_cloud_2");
+   viewer->addPointCloud<pcl::PointXYZRGB> (cloud2,single_color1, "sample_cloud_1");
+   viewer->addPointCloud<pcl::PointXYZRGB> (cloudOut_new, single_color2, "sample_cloud_2");
 
-    viewer->addCoordinateSystem(0.1);
+    viewer->addCoordinateSystem(1.0);
       while(!viewer->wasStopped())
       {
           viewer->spinOnce();

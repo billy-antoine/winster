@@ -23,12 +23,12 @@ const string inputDir  = "/home/doctorant/Images/Stereo/Kitti/2011_09_26/2011_09
 const string outputDir = inputDir+"Results/";
 
 // Input images
-const string num_image  = "0000000000";
-const string num_image2 = "0000000000";
+const string num_image  = "0000000216";
+const string num_image2 = "0000000220";
 
 const string jpg_filenameL  = inputDir + "image_02/data/" + num_image  + ".png";
-const string jpg_filenameL2 = inputDir + "image_02/data/" + num_image  + ".png";
-const string jpg_filenameR  = inputDir + "image_03/data/" + num_image2 + ".png";
+const string jpg_filenameL2 = inputDir + "image_02/data/" + num_image2  + ".png";
+const string jpg_filenameR  = inputDir + "image_03/data/" + num_image + ".png";
 const string jpg_filenameR2 = inputDir + "image_03/data/" + num_image2 + ".png";
 
 

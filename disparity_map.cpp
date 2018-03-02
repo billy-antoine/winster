@@ -30,7 +30,7 @@ cv::Mat compute_disparity_map(cv::Mat &left, cv::Mat &right, bool no_downscale, 
     Mat left_for_matcher, right_for_matcher;
     Mat left_disp,right_disp;
     Mat filtered_disp;
-    Mat conf_map = Mat(left.rows,left.cols,CV_8U);
+    Mat conf_map = Mat(left.rows,left.cols,CV_8UC1);
     conf_map = Scalar(255);
     Rect ROI;
     Ptr<DisparityWLSFilter> wls_filter;
@@ -165,14 +165,19 @@ cv::Mat compute_disparity_map(cv::Mat &left, cv::Mat &right, bool no_downscale, 
     }
 
     //! [visualization]
-    Mat raw_disp_vis;
+    //Mat raw_disp_vis;
     //getDisparityVis(left_disp,raw_disp_vis,vis_mult);
 
-    Mat filtered_disp_vis;
+    //Mat filtered_disp_vis;
     //getDisparityVis(filtered_disp,filtered_disp_vis,vis_mult);
 
     //! [visualization]
-    return filtered_disp;
+    cv::Mat conf_thresh;
+    cv::threshold(conf_map, conf_thresh, 0, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
+    cv::Mat filtered_conf_disp;
+    filtered_disp.copyTo(filtered_conf_disp, conf_thresh);
+
+    return filtered_conf_disp;
 }
 
 Rect computeROI(Size2i src_sz, Ptr<StereoMatcher> matcher_instance)
