@@ -8,6 +8,7 @@
 #include "opencv2/surface_matching.hpp"
 #include "opencv2/imgproc.hpp"
 #include "point_cloud_viewer.h"
+#include "tool_box.h"
 
 #include <fstream>
 #include <iostream>
@@ -25,6 +26,7 @@
 #include <pcl/common/transforms.h>
 
 #include <pcl/registration/icp.h>
+#include <pcl/filters/voxel_grid.h>
 
 using namespace cv;
 
@@ -57,8 +59,6 @@ int multimaps(){
       closedir (dir);
     }
 
-
-
     return 0;
 }
 
@@ -70,7 +70,6 @@ int main(){
     cv::Mat right02 = imread(jpg_filenameR2);
 
     // Calibration
-
 
     if(calibration){
         std::vector<std::string> imagelist;
@@ -100,10 +99,10 @@ int main(){
     cv::imwrite(outputDir+"dmap_01.png", dispMap01);
     cv::imwrite(outputDir+"dmap_02.png", dispMap02);
 
-    //dispMap01.convertTo(dispMap01, CV_32FC1);
-    //dispMap02.convertTo(dispMap02, CV_32FC1);
-    //cv::normalize(dispMap01, dispMap01,  0, 255, CV_MINMAX, CV_8U);
     if(writeImage){
+        //dispMap01.convertTo(dispMap01, CV_32FC1);
+        //dispMap02.convertTo(dispMap02, CV_32FC1);
+        //cv::normalize(dispMap01, dispMap01,  0, 255, CV_MINMAX, CV_8U);
         cv::String filename = outputDir+"mat01.txt";
         writeMatToFile(dispMap01,filename);
     }
@@ -136,84 +135,107 @@ int main(){
     cv::reprojectImageTo3D(dispMap01, points01, Q, true, -1);
     cv::reprojectImageTo3D(dispMap02, points02, Q, true, -1);
 
+
+    // Canny filter
+
+
+    cv::Mat cannied01, cannied02, points01_cannied, points02_cannied;
+    getCannyMask(left01, dispMap01, cannied01);
+    getCannyMask(left02, dispMap02, cannied02);
+
+    // Reproject cannied images
+    cv::reprojectImageTo3D(cannied01, points01_cannied, Q, true, -1);
+    cv::reprojectImageTo3D(cannied02, points02_cannied, Q, true, -1);    
+
     //Q.convertTo(Q, CV_32F);
     pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud1 = MatToPoinXYZ(points01, left01);
     pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud2 = MatToPoinXYZ(points02, left02);
 
+    pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_sparse01 = MatToPoinXYZ(points01_cannied, left01);
+    pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_sparse02 = MatToPoinXYZ(points02_cannied, left02);
+
+
     if(writeImage){
         pcl::io::savePLYFileBinary (outputDir+"cloud1.ply", *cloud1);
         pcl::io::savePLYFileBinary (outputDir+"cloud2.ply", *cloud2);
+
+        pcl::io::savePLYFileBinary (outputDir+"cloud_sparse01.ply", *cloud_sparse01);
+        pcl::io::savePLYFileBinary (outputDir+"cloud_sparse02.ply", *cloud_sparse02);
     }
 
-    //std::string writePath = outputDir+"poitCloud.ply";
-   // pcl::io::savePLYFileASCII(writePath, *cloud);
+
+    if(performSFM){   
+        std::cout << "SfM computation ..." << std::endl;
+
+        openMVG::image::Image<unsigned char> imageL, imageR;
+
+        ReadImage(jpg_filenameL.c_str(), &imageL);
+        ReadImage(jpg_filenameR.c_str(), &imageR);
+
+        int start_s = clock();
+        std::vector<Vec3> vec_camPos;
+        vec_camPos = reconstruct_scene(imageL, imageR, true, inputDir);
+        int stop_s = clock();
+        cout << "time: " << double(stop_s-start_s) / CLOCKS_PER_SEC << endl;
+
+        for (auto i: vec_camPos)
+            cout << i << ' ';
 
 
+        Eigen::Affine3f transform_2 = Eigen::Affine3f::Identity();
+        transform_2.translation() << vec_camPos[1][0], vec_camPos[1][1], vec_camPos[1][2];
+    }
 
 
-    /*std::cout << "SfM computation ..." << std::endl;
+    Eigen::Matrix4d transformation_matrix = Eigen::Matrix4d::Identity ();
 
-
-    openMVG::image::Image<unsigned char> imageL, imageR;
-
-    ReadImage(jpg_filenameL.c_str(), &imageL);
-    ReadImage(jpg_filenameR.c_str(), &imageR);
-
-    int start_s = clock();
-    std::vector<Vec3> vec_camPos;
-    vec_camPos = reconstruct_scene(imageL, imageR, true, inputDir);
-    int stop_s = clock();
-    cout << "time: " << double(stop_s-start_s) / CLOCKS_PER_SEC << endl;
-
-    for (auto i: vec_camPos)
-        cout << i << ' ';
-
-
-    Eigen::Affine3f transform_2 = Eigen::Affine3f::Identity();
-    transform_2.translation() << vec_camPos[1][0], vec_camPos[1][1], vec_camPos[1][2];*/
-
-    // Executing the transformation
-    pcl::PointCloud<pcl::PointXYZRGB>::Ptr transformed_cloud (new pcl::PointCloud<pcl::PointXYZRGB> ());
-    // You can either apply transform_1 or transform_2; they are the same
-    //pcl::transformPointCloud (*cloud, *transformed_cloud, transform_2);
-
-
-  Eigen::Matrix4d transformation_matrix = Eigen::Matrix4d::Identity ();
 
     pcl::IterativeClosestPoint<pcl::PointXYZRGB, pcl::PointXYZRGB> icp;
-    icp.setInputCloud(cloud1);
-    icp.setInputTarget(cloud2);
-    icp.setMaximumIterations (200);
-    icp.setTransformationEpsilon (1e-9);
-    icp.setMaxCorrespondenceDistance (0.005);
-    icp.setEuclideanFitnessEpsilon (1);
-    icp.setRANSACOutlierRejectionThreshold (1.5);
+    icp.setInputSource(cloud_sparse02);
+    icp.setInputTarget(cloud_sparse01);
 
-    pcl::PointCloud<pcl::PointXYZRGB> Final;
-    icp.align(Final);
+    icp.setTransformationEpsilon (1e-8);
+    //icp.setMaxCorrespondenceDistance (0.05);
+    //icp.setEuclideanFitnessEpsilon (1);
+    icp.setMaximumIterations (150);
 
+    pcl::PointCloud<pcl::PointXYZRGB> Final_sparse;
+    pcl::PointCloud<pcl::PointXYZRGB> Final_dense;
+    icp.align(*cloud_sparse02);
+
+    std::cout << "has converged:" << icp.hasConverged() << " score: " << icp.getFitnessScore() << std::endl;
+    
     Eigen::Matrix4f transformationMatrix = icp.getFinalTransformation ();
-    std::cout<<"trans %n"<<transformationMatrix<<std::endl;
+    std::cout<<"trans : \n"<<transformationMatrix<<std::endl;
 
 
-    pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloudOut_new (new pcl::PointCloud<pcl::PointXYZRGB> ());
+    pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_sparse01_trans (new pcl::PointCloud<pcl::PointXYZRGB> ());
+    pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_dense02_trans  (new pcl::PointCloud<pcl::PointXYZRGB> ());
 
-    pcl::transformPointCloud( *cloud1, *cloudOut_new, transformationMatrix);
+    //pcl::transformPointCloud( *cloud_sparse01, *cloud_sparse01_trans, transformationMatrix);
+    pcl::transformPointCloud( *cloud2        , *cloud_dense02_trans , transformationMatrix);
 
-    Final=*cloud2;
-    Final+=*cloudOut_new;
+    Final_sparse  = *cloud_sparse01;
+    Final_sparse += *cloud_sparse02;
 
-    pcl::io::savePLYFileBinary (outputDir+"IcpResult.ply", Final);
+    Final_dense  = *cloud1;
+    Final_dense += *cloud_dense02_trans;
+
+    pcl::io::savePLYFileBinary (outputDir+"IcpResult_sparse.ply", Final_sparse);
+    pcl::io::savePLYFileBinary (outputDir+"IcpResult_dense.ply" , Final_dense);
+
+    // VIEWER
 
    boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer("3D Viewer"));
    viewer->setBackgroundColor(0,0,0);
-   pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZRGB> single_color1 (cloud2, 0, 0, 200);
-   pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZRGB> single_color2 (cloudOut_new, 200, 0, 0);
 
-   viewer->addPointCloud<pcl::PointXYZRGB> (cloud2,single_color1, "sample_cloud_1");
-   viewer->addPointCloud<pcl::PointXYZRGB> (cloudOut_new, single_color2, "sample_cloud_2");
+   pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZRGB> single_color1 (cloud_sparse01,  20, 100, 200);
+   pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZRGB> single_color2 (cloud_sparse02, 200, 50 , 50 );
 
-    viewer->addCoordinateSystem(1.0);
+   viewer->addPointCloud<pcl::PointXYZRGB> (cloud_sparse01, single_color1, "sample_cloud_1");
+   viewer->addPointCloud<pcl::PointXYZRGB> (cloud_sparse02, single_color2, "sample_cloud_2");
+
+    viewer->addCoordinateSystem(0.1);
       while(!viewer->wasStopped())
       {
           viewer->spinOnce();

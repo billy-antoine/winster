@@ -218,6 +218,12 @@
       <Unit filename="/home/doctorant/Qt/Winster/struct_from_motion.h">
          <Option target="Winster"/>
       </Unit>
+      <Unit filename="/home/doctorant/Qt/Winster/tool_box.cpp">
+         <Option target="Winster"/>
+      </Unit>
+      <Unit filename="/home/doctorant/Qt/Winster/tool_box.h">
+         <Option target="Winster"/>
+      </Unit>
       <Unit filename="/home/doctorant/Qt/Winster/CMakeLists.txt">
           <Option virtualFolder="CMake Files\" />
       </Unit>

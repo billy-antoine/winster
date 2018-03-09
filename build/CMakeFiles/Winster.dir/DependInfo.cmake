@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/doctorant/Qt/Winster/point_cloud_viewer.cpp" "/home/doctorant/Qt/Winster/build/CMakeFiles/Winster.dir/point_cloud_viewer.cpp.o"
   "/home/doctorant/Qt/Winster/stereo_calib.cpp" "/home/doctorant/Qt/Winster/build/CMakeFiles/Winster.dir/stereo_calib.cpp.o"
   "/home/doctorant/Qt/Winster/struct_from_motion.cpp" "/home/doctorant/Qt/Winster/build/CMakeFiles/Winster.dir/struct_from_motion.cpp.o"
+  "/home/doctorant/Qt/Winster/tool_box.cpp" "/home/doctorant/Qt/Winster/build/CMakeFiles/Winster.dir/tool_box.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -173,7 +173,8 @@ cv::Mat compute_disparity_map(cv::Mat &left, cv::Mat &right, bool no_downscale, 
 
     //! [visualization]
     cv::Mat conf_thresh;
-    cv::threshold(conf_map, conf_thresh, 0, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
+    conf_map.convertTo(conf_thresh, CV_8U);
+    cv::threshold(conf_thresh, conf_thresh, 50, 255, CV_THRESH_BINARY);
     cv::Mat filtered_conf_disp;
     filtered_disp.copyTo(filtered_conf_disp, conf_thresh);
 

@@ -329,6 +329,33 @@ struct_from_motion.cpp.s:
 	$(MAKE) -f CMakeFiles/Winster.dir/build.make CMakeFiles/Winster.dir/struct_from_motion.cpp.s
 .PHONY : struct_from_motion.cpp.s
 
+tool_box.o: tool_box.cpp.o
+
+.PHONY : tool_box.o
+
+# target to build an object file
+tool_box.cpp.o:
+	$(MAKE) -f CMakeFiles/Winster.dir/build.make CMakeFiles/Winster.dir/tool_box.cpp.o
+.PHONY : tool_box.cpp.o
+
+tool_box.i: tool_box.cpp.i
+
+.PHONY : tool_box.i
+
+# target to preprocess a source file
+tool_box.cpp.i:
+	$(MAKE) -f CMakeFiles/Winster.dir/build.make CMakeFiles/Winster.dir/tool_box.cpp.i
+.PHONY : tool_box.cpp.i
+
+tool_box.s: tool_box.cpp.s
+
+.PHONY : tool_box.s
+
+# target to generate assembly for a file
+tool_box.cpp.s:
+	$(MAKE) -f CMakeFiles/Winster.dir/build.make CMakeFiles/Winster.dir/tool_box.cpp.s
+.PHONY : tool_box.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -360,6 +387,9 @@ help:
 	@echo "... struct_from_motion.o"
 	@echo "... struct_from_motion.i"
 	@echo "... struct_from_motion.s"
+	@echo "... tool_box.o"
+	@echo "... tool_box.i"
+	@echo "... tool_box.s"
 .PHONY : help
 
 

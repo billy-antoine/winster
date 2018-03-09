@@ -105,9 +105,33 @@ CMakeFiles/Winster.dir/point_cloud_viewer.cpp.o.provides: CMakeFiles/Winster.dir
 CMakeFiles/Winster.dir/point_cloud_viewer.cpp.o.provides.build: CMakeFiles/Winster.dir/point_cloud_viewer.cpp.o
 
 
+CMakeFiles/Winster.dir/tool_box.cpp.o: CMakeFiles/Winster.dir/flags.make
+CMakeFiles/Winster.dir/tool_box.cpp.o: ../tool_box.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/doctorant/Qt/Winster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Winster.dir/tool_box.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Winster.dir/tool_box.cpp.o -c /home/doctorant/Qt/Winster/tool_box.cpp
+
+CMakeFiles/Winster.dir/tool_box.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Winster.dir/tool_box.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/doctorant/Qt/Winster/tool_box.cpp > CMakeFiles/Winster.dir/tool_box.cpp.i
+
+CMakeFiles/Winster.dir/tool_box.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Winster.dir/tool_box.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/doctorant/Qt/Winster/tool_box.cpp -o CMakeFiles/Winster.dir/tool_box.cpp.s
+
+CMakeFiles/Winster.dir/tool_box.cpp.o.requires:
+
+.PHONY : CMakeFiles/Winster.dir/tool_box.cpp.o.requires
+
+CMakeFiles/Winster.dir/tool_box.cpp.o.provides: CMakeFiles/Winster.dir/tool_box.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Winster.dir/build.make CMakeFiles/Winster.dir/tool_box.cpp.o.provides.build
+.PHONY : CMakeFiles/Winster.dir/tool_box.cpp.o.provides
+
+CMakeFiles/Winster.dir/tool_box.cpp.o.provides.build: CMakeFiles/Winster.dir/tool_box.cpp.o
+
+
 CMakeFiles/Winster.dir/stereo_calib.cpp.o: CMakeFiles/Winster.dir/flags.make
 CMakeFiles/Winster.dir/stereo_calib.cpp.o: ../stereo_calib.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/doctorant/Qt/Winster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Winster.dir/stereo_calib.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/doctorant/Qt/Winster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Winster.dir/stereo_calib.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Winster.dir/stereo_calib.cpp.o -c /home/doctorant/Qt/Winster/stereo_calib.cpp
 
 CMakeFiles/Winster.dir/stereo_calib.cpp.i: cmake_force
@@ -131,7 +155,7 @@ CMakeFiles/Winster.dir/stereo_calib.cpp.o.provides.build: CMakeFiles/Winster.dir
 
 CMakeFiles/Winster.dir/main.cpp.o: CMakeFiles/Winster.dir/flags.make
 CMakeFiles/Winster.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/doctorant/Qt/Winster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Winster.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/doctorant/Qt/Winster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Winster.dir/main.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Winster.dir/main.cpp.o -c /home/doctorant/Qt/Winster/main.cpp
 
 CMakeFiles/Winster.dir/main.cpp.i: cmake_force
@@ -155,7 +179,7 @@ CMakeFiles/Winster.dir/main.cpp.o.provides.build: CMakeFiles/Winster.dir/main.cp
 
 CMakeFiles/Winster.dir/disparity_map.cpp.o: CMakeFiles/Winster.dir/flags.make
 CMakeFiles/Winster.dir/disparity_map.cpp.o: ../disparity_map.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/doctorant/Qt/Winster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Winster.dir/disparity_map.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/doctorant/Qt/Winster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Winster.dir/disparity_map.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Winster.dir/disparity_map.cpp.o -c /home/doctorant/Qt/Winster/disparity_map.cpp
 
 CMakeFiles/Winster.dir/disparity_map.cpp.i: cmake_force
@@ -179,7 +203,7 @@ CMakeFiles/Winster.dir/disparity_map.cpp.o.provides.build: CMakeFiles/Winster.di
 
 CMakeFiles/Winster.dir/struct_from_motion.cpp.o: CMakeFiles/Winster.dir/flags.make
 CMakeFiles/Winster.dir/struct_from_motion.cpp.o: ../struct_from_motion.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/doctorant/Qt/Winster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Winster.dir/struct_from_motion.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/doctorant/Qt/Winster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Winster.dir/struct_from_motion.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Winster.dir/struct_from_motion.cpp.o -c /home/doctorant/Qt/Winster/struct_from_motion.cpp
 
 CMakeFiles/Winster.dir/struct_from_motion.cpp.i: cmake_force
@@ -205,6 +229,7 @@ CMakeFiles/Winster.dir/struct_from_motion.cpp.o.provides.build: CMakeFiles/Winst
 Winster_OBJECTS = \
 "CMakeFiles/Winster.dir/DepthToPly.cpp.o" \
 "CMakeFiles/Winster.dir/point_cloud_viewer.cpp.o" \
+"CMakeFiles/Winster.dir/tool_box.cpp.o" \
 "CMakeFiles/Winster.dir/stereo_calib.cpp.o" \
 "CMakeFiles/Winster.dir/main.cpp.o" \
 "CMakeFiles/Winster.dir/disparity_map.cpp.o" \
@@ -215,6 +240,7 @@ Winster_EXTERNAL_OBJECTS =
 
 Winster: CMakeFiles/Winster.dir/DepthToPly.cpp.o
 Winster: CMakeFiles/Winster.dir/point_cloud_viewer.cpp.o
+Winster: CMakeFiles/Winster.dir/tool_box.cpp.o
 Winster: CMakeFiles/Winster.dir/stereo_calib.cpp.o
 Winster: CMakeFiles/Winster.dir/main.cpp.o
 Winster: CMakeFiles/Winster.dir/disparity_map.cpp.o
@@ -569,7 +595,7 @@ Winster: /usr/local/lib/libvtkCommonCore-8.1.so.1
 Winster: /usr/local/lib/libvtkfreetype-8.1.so.1
 Winster: /usr/local/lib/libvtkzlib-8.1.so.1
 Winster: CMakeFiles/Winster.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/doctorant/Qt/Winster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable Winster"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/doctorant/Qt/Winster/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Winster"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Winster.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -579,6 +605,7 @@ CMakeFiles/Winster.dir/build: Winster
 
 CMakeFiles/Winster.dir/requires: CMakeFiles/Winster.dir/DepthToPly.cpp.o.requires
 CMakeFiles/Winster.dir/requires: CMakeFiles/Winster.dir/point_cloud_viewer.cpp.o.requires
+CMakeFiles/Winster.dir/requires: CMakeFiles/Winster.dir/tool_box.cpp.o.requires
 CMakeFiles/Winster.dir/requires: CMakeFiles/Winster.dir/stereo_calib.cpp.o.requires
 CMakeFiles/Winster.dir/requires: CMakeFiles/Winster.dir/main.cpp.o.requires
 CMakeFiles/Winster.dir/requires: CMakeFiles/Winster.dir/disparity_map.cpp.o.requires

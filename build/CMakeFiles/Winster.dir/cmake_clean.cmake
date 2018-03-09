@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Winster.dir/DepthToPly.cpp.o"
   "CMakeFiles/Winster.dir/point_cloud_viewer.cpp.o"
+  "CMakeFiles/Winster.dir/tool_box.cpp.o"
   "CMakeFiles/Winster.dir/stereo_calib.cpp.o"
   "CMakeFiles/Winster.dir/main.cpp.o"
   "CMakeFiles/Winster.dir/disparity_map.cpp.o"
